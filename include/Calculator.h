@@ -5,6 +5,9 @@
 #include <memory>
 #include <string>
 
+#include "Set.h"
+
+
 enum Commands { EVAL, UNI, INTER, DIFF, PROD, COMP, DEL, HELP, EXIT };
 const int NUM_OF_COMMAND = 9;
 const std::string COMMANDS_STR[NUM_OF_COMMAND] = { "eval", "uni", "inter", "diff", "prod", "comp", "del", "help", "exit"};
