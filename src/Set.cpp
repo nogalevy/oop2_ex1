@@ -31,13 +31,22 @@ void Set::printSet() const
 /*
 	Noga: I think we need to use the std::ranges::uniqueand std::ranges::sort
 			but for some reason its not recognize 'ranges'
+
+	Tali: Hi nogaaaaaaaaaa, i played around with some includes. I also did a bit of
+			research. I couldn't fix the problem but i think it can be either:
+				1. something to do with cmake
+				2. the version of c++ that we are using. i saw on google that 
+					ranges requires c++20 (should we check if it's enabled?)
+				3. something to do with clang - i obviously dont understand enough about that
 */ 
 
 void Set::sort()
 {
 	std::sort(m_setValues.begin(), m_setValues.end());
 	
-	/*std::ranges::sort(m_setValues.begin(), m_setValues.end());*/
+	//auto ranges = std::ranges;
+
+	//std::ranges::sort(m_setValues.begin(), m_setValues.end());
 }
 
 void Set::unique()
