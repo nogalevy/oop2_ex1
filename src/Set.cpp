@@ -42,18 +42,18 @@ void Set::printSet() const
 
 void Set::sort()
 {
-	std::sort(m_setValues.begin(), m_setValues.end());
+	//std::sort(m_setValues.begin(), m_setValues.end());
 	
 	//auto ranges = std::ranges;
 
-	//std::ranges::sort(m_setValues.begin(), m_setValues.end());
+	std::ranges::sort(m_setValues.begin(), m_setValues.end());
 }
 
 void Set::unique()
 {
-	auto newEnd = std::unique(m_setValues.begin(), m_setValues.end());
-	m_setValues.erase(newEnd, m_setValues.end());
+	/*auto newEnd = std::unique(m_setValues.begin(), m_setValues.end());
+	m_setValues.erase(newEnd, m_setValues.end());*/
 
-	//auto [newEnd, end] = std::ranges::unique(m_setValues.begin(), m_setValues.end());
-	//m_setValues.erase(newEnd, end);
+	auto [newEnd, end] = std::ranges::unique(m_setValues);
+	m_setValues.erase(newEnd, end);
 }
