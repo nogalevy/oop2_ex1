@@ -8,6 +8,7 @@
 #include<functional>
 #include <array>
 #include <ranges>
+#include <memory>
 
 
 class Set
