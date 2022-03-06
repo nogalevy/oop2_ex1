@@ -15,3 +15,9 @@ Union::Union(Set set1, Set set2)
 Union::~Union()
 {
 }
+
+Set Union::getUnion() const
+{
+	return m_mySet;
+}
+
