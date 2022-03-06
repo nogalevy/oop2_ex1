@@ -43,8 +43,6 @@ void Set::printSet() const
 void Set::sort()
 {
 	//std::sort(m_setValues.begin(), m_setValues.end());
-	
-	//auto ranges = std::ranges;
 
 	std::ranges::sort(m_setValues.begin(), m_setValues.end());
 }

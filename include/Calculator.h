@@ -6,6 +6,7 @@
 #include <string>
 
 #include "Set.h"
+#include "Intersection.h"
 
 
 enum Commands { EVAL, UNI, INTER, DIFF, PROD, COMP, DEL, HELP, EXIT };

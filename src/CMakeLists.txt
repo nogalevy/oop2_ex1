@@ -2,5 +2,7 @@
 												"Calculator.cpp"
 												"Set.cpp"
 												"Operation.cpp"
-												"Union.cpp")
+												"Union.cpp"
+												"Intersection.cpp"
+												)
 

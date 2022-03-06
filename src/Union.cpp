@@ -16,6 +16,12 @@ Union::~Union()
 {
 }
 
+Set Union::calculate(const Set&, const Set&)
+{
+	//calc union with ranges
+	return Set({});
+}
+
 Set Union::getUnion() const
 {
 	return m_mySet;
