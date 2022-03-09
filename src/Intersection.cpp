@@ -1,4 +1,4 @@
-#include "..\include\Intersection.h"
+#include "Intersection.h"
 
 Intersection::Intersection()
 {
@@ -8,10 +8,11 @@ Intersection::~Intersection()
 {
 }
 
-Set Intersection::calculate(const Set& set1, const Set& set2)
+Set Intersection::calculate(std::vector<Set> sets)
 {
-	std::vector<int> res;
-	std::ranges::set_intersection(set1.getSet(), set2.getSet(), std::back_inserter(res));
+	//std::vector<int> res;
+	/*std::ranges::set_intersection(set1.getSet(), set2.getSet(), std::back_inserter(res)); */
 
-	return res;
+	return Set({});
 }
+

@@ -1,12 +1,23 @@
 #pragma once
 
+#include <iostream>
 #include "Set.h"
 
+ 
 class Operation
 {
 public:
 	Operation() = default;
 	~Operation();
 
-	virtual Set calculate(const Set&, const Set&) = 0;
+	/* 
+		TODO:
+		calculate recieve vector of sets ?
+		
+		
+	*/
+	
+
+	virtual Set calculate(std::vector<Set> sets) = 0;
+
 };

@@ -48,7 +48,7 @@ void Calculator::doCommand(int command)
 	{
 		//inter exeample :
 		Intersection inter;
-		Set res = inter.calculate(Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 }));
+		Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
 		res.printSet();
 		break;
 	}

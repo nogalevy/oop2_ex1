@@ -1,20 +1,18 @@
 #pragma once
 
-#include "Operation.h"
+#include "CompOperation.h"
 
 
-class Union :Operation
+class Union : CompOperation
 {
 public:
 	//Union();
-	Union(Set set1, Set set2);
+	Union();
 	~Union();
 
 	//
-	Set calculate(const Set&, const Set&);
+	Set calculate(std::vector<Set> sets);
 
-	//Access Functions
-	Set getUnion()const;
 private:
-	Set m_mySet; //Noga: I dont think we need to save member here. this class just calc union of two sets, no?
+	
 };

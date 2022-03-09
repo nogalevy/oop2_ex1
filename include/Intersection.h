@@ -1,17 +1,17 @@
 #pragma once
 
-#include "Operation.h"
+#include "CompOperation.h"
 
 
-class Intersection :Operation
+class Intersection : CompOperation
 {
 public:
 	//Intersection();
 	Intersection();
 	~Intersection();
 
-	//
-	Set calculate(const Set&, const Set&);
+	// 
+	Set calculate(std::vector<Set> sets);
 
 	//Access Functions
 	//Set getUnion()const;

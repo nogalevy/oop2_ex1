@@ -4,5 +4,6 @@
 												"Operation.cpp"
 												"Union.cpp"
 												"Intersection.cpp"
+												"CompOperation.cpp"
 												)
 
