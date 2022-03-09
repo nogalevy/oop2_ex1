@@ -39,9 +39,8 @@ void Calculator::doCommand(int command)
 		std::vector vec = { 1, 5, 6, 3, 12 , 3, 12 , 1, 5 };
 		Set newSet = Set(vec);
 		newSet.printSet();
-	}
-		
 		break;
+	}	
 	case UNI:
 		break;
 	case INTER:
