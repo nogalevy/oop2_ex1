@@ -8,8 +8,12 @@ class Operation
 {
 public:
 	Operation() = default;
-	~Operation();
+	virtual ~Operation();
 
-	virtual Set calculate(std::vector<Set> sets) = 0;
+	void setNumOfSets(const int num);
+	int getNumOfSets()const;
 
+	virtual Set calculate(std::vector<Set> &sets) = 0;
+private:
+	int m_numOfSets;
 };

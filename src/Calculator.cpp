@@ -2,13 +2,22 @@
 
 
 Calculator::Calculator()
+	:m_operation({})
 {
+
+	m_operation.emplace_back(std::make_shared<Union>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+	m_operation.emplace_back(std::make_shared<Intersection>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+	//m_operation.push_back(std::make_shared<Difference>(Identity(), Identity()));
+
+	//initBaseOp();
+	
 }
 
 //-----------------------------------------
 
 void Calculator::run()
 {
+
 	while(1) 
 	{
 		print();
@@ -38,17 +47,24 @@ void Calculator::doCommand(int command)
 
 		std::vector vec = { 1, 5, 6, 3, 12 , 3, 12 , 1, 5 };
 		Set newSet = Set(vec);
-		newSet.printSet();
+		newSet.printSet(); //TODO: operator << thanks
 		break;
 	}	
 	case UNI:
+	{
+		std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
+		Set res = m_operation[0]->calculate(sets);
+	
+		res.printSet();
+
 		break;
+	}
 	case INTER:
 	{
 		//inter exeample :
-		Intersection inter;
+		/*Intersection inter;
 		Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
-		res.printSet();
+		res.printSet();*/
 		break;
 	}
 	case DIFF:

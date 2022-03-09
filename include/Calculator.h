@@ -6,6 +6,8 @@
 #include <string>
 
 #include "Set.h"
+#include "Union.h"
+#include "Identity.h"
 #include "Intersection.h"
 
 
@@ -19,7 +21,7 @@ public:
 	Calculator();
 	void run();
 private:
-	std::shared_ptr<int> m_operation; //evaluate, union, intersection .....................
+	std::vector<std::shared_ptr<Operation>> m_operation; //evaluate, union, intersection .....................
 
 	void getCommand();
 	void doCommand(int command);
@@ -31,4 +33,6 @@ private:
 	void print()const;
 	void printErrorMsg()const;
 	void printHelp()const;
+
+
 };

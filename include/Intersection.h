@@ -3,15 +3,15 @@
 #include "CompOperation.h"
 
 
-class Intersection : CompOperation
+class Intersection : public CompOperation
 {
 public:
 	//Intersection();
-	Intersection();
+	Intersection( std::shared_ptr<Operation> first,  std::shared_ptr<Operation> second);
 	~Intersection();
 
 	// 
-	Set calculate(std::vector<Set> sets);
+	Set calculate(std::vector<Set> &sets);
 
 	//Access Functions
 	//Set getUnion()const;

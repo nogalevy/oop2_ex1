@@ -5,5 +5,6 @@
 												"Union.cpp"
 												"Intersection.cpp"
 												"CompOperation.cpp"
+												"Identity.cpp"
 												)
 
