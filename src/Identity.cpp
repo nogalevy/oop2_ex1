@@ -19,3 +19,8 @@ Set Identity::calculate(std::vector<Set> &sets)
 
 	return identity;
 }
+
+void Identity::print(int& offset)
+{
+	std::cout << char('A' + offset++);
+}

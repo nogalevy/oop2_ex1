@@ -106,7 +106,18 @@ void Calculator::print() const
 	std::cout << "List of available set operations: \n";
 
 	//print options
+	int offset = 0;
 
+	for (int i = 0; i < 1 /* m_operation.size() */; i++)
+	{
+		offset = 0;
+
+		std::cout << i << ".";
+		m_operation[i]->print(offset);
+
+	}
+
+	
 	std::cout << "Enter command ('help' for the list of available commands): ";
 }
 

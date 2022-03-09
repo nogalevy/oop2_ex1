@@ -9,6 +9,7 @@ public:
 	CompOperation(std::shared_ptr<Operation> first,std::shared_ptr<Operation> second);
 	~CompOperation();
 
+
 	std::shared_ptr<Operation> getFirstOp()const;
 	std::shared_ptr<Operation> getSecondOp()const;
 	
