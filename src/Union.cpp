@@ -1,8 +1,5 @@
 #include "Union.h"
 
-//Union::Union() : m_mySet()
-//{
-//}
 
 Union::Union()
 {
