@@ -91,7 +91,7 @@ void Calculator::doCommand(int command)
 	case COMP:
 		break;
 	case DEL:
-		//handleDelete
+		handleDelete();
 		break;
 	case HELP:
 		printHelp();
@@ -155,6 +155,20 @@ void Calculator::handleDiff()
 
 	if (retVal == ERROR_COMMAND_NUM) return;
 	m_operation.emplace_back(std::make_shared<Difference>(m_operation[retVal[0]], m_operation[retVal[1]]));
+}
+
+void Calculator::handleDelete()
+{
+	int commandToDelete = readCommandNum();
+	if (!isValidCommand(commandToDelete))
+	{
+		printCommandError();
+		return;
+	}
+
+	m_operation.erase(m_operation.begin() + commandToDelete);
+
+
 }
 
 //-----------------------------------------

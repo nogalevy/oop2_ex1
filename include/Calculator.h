@@ -37,7 +37,7 @@ private:
 	void handleInter();
 	void handleUnion();
 	void handleDiff();
-
+	void handleDelete();
 
 
 	std::vector<int> getTwoCommands()const;
