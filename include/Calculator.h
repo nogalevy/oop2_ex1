@@ -9,6 +9,7 @@
 #include "Union.h"
 #include "Identity.h"
 #include "Intersection.h"
+#include "Difference.h"
 
 
 enum Commands { EVAL, UNI, INTER, DIFF, PROD, COMP, DEL, HELP, EXIT };
