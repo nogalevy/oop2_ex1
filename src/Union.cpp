@@ -24,11 +24,11 @@ Set Union::calculate(std::vector<Set> &sets)
 
 void Union::print(int& offset)
 {
-	std::cout << " ( ";
+	std::cout << "( ";
 	getFirstOp().get()->print(offset);
 	std::cout << " U ";
 	getSecondOp().get()->print(offset);
-	std::cout << " ) " << std::endl;
+	std::cout << " )";
 }
 
 

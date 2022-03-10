@@ -22,9 +22,9 @@ Set Difference::calculate(std::vector<Set>& sets)
 
 void Difference::print(int& offset)
 {
-	std::cout << " ( ";
+	std::cout << "( ";
 	getFirstOp().get()->print(offset);
 	std::cout << " - ";
 	getSecondOp().get()->print(offset);
-	std::cout << " ) " << std::endl;
+	std::cout << " )";
 }

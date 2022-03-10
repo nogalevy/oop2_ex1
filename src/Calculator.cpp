@@ -4,19 +4,7 @@
 Calculator::Calculator()
 	:m_operation({})
 {
-
-	m_operation.emplace_back(std::make_shared<Union>(std::make_shared<Identity>(), std::make_shared<Identity>()));
-	m_operation.emplace_back(std::make_shared<Intersection>(std::make_shared<Identity>(), std::make_shared<Identity>()));
-	
-	// product example
-	//m_operation.emplace_back(std::make_shared<Product>(std::make_shared<Identity>(), std::make_shared<Identity>()));
-	
-	
-	
-	m_operation.emplace_back(std::make_shared<Difference>(std::make_shared<Identity>(), std::make_shared<Identity>()));
-
-	//initBaseOp();
-	
+	initBaseOp();
 }
 
 //-----------------------------------------
@@ -29,6 +17,20 @@ void Calculator::run()
 		print();
 		getCommand();
 	}	
+}
+
+//-----------------------------------------
+
+void Calculator::initBaseOp()
+{
+	//add basic union ( A U B )
+	m_operation.emplace_back(std::make_shared<Union>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+
+	//add basic intersection ( A ^ B ) 
+	m_operation.emplace_back(std::make_shared<Intersection>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+
+	//add basic difference ( A - B )
+	m_operation.emplace_back(std::make_shared<Difference>(std::make_shared<Identity>(), std::make_shared<Identity>()));
 }
 
 //-----------------------------------------
@@ -58,43 +60,38 @@ void Calculator::doCommand(int command)
 	}	
 	case UNI:
 	{
-		std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
+	/*	std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
 		Set res = m_operation[0]->calculate(sets);
 	
-		res.printSet();
-
+		res.printSet();*/
+		handleUnion();
 		break;
 	}
 	case INTER:
 	{
-		//inter exeample :
-		std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
-		Set res = m_operation[1]->calculate(sets);
-		//Intersection inter;
-		//Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
-		res.printSet();
+		////inter exeample :
+		//std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
+		//Set res = m_operation[1]->calculate(sets);
+		////Intersection inter;
+		////Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
+		//res.printSet();
+		handleInter();
 		break;
 	}
 	case DIFF:
 	{
-		std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
-		Set res = m_operation[2]->calculate(sets);
-		res.printSet();
-
+		handleDiff();
 		break;
 	}
 	case PROD:
 	{
-		/*std::vector<Set> sets = { Set({ 1, 2 }), Set({ 3, 4 }) };
-		Set res = m_operation[2]->calculate(sets);
-
-		res.printSet();*/
-
+		handleProd();
 	}
 		break;
 	case COMP:
 		break;
 	case DEL:
+		//handleDelete
 		break;
 	case HELP:
 		printHelp();
@@ -117,10 +114,79 @@ int Calculator::interp(std::string command) const
 		if (COMMANDS_STR[i].compare(command) == 0)
 			return Commands(i);
 	}
-	return -1; //error
+	return ERROR_NUM; //error TODO: add to constants
 }
 
 //-----------------------------------------
+
+void Calculator::handleProd()
+{
+	auto retVal = getTwoCommands(); 
+	
+	if (retVal == ERROR_COMMAND_NUM) return;
+	m_operation.emplace_back(std::make_shared<Product>(m_operation[retVal[0]], m_operation[retVal[1]]));
+}
+
+//-----------------------------------------
+
+void Calculator::handleInter()
+{
+	auto retVal = getTwoCommands();
+
+	if (retVal == ERROR_COMMAND_NUM) return;
+	m_operation.emplace_back(std::make_shared<Intersection>(m_operation[retVal[0]], m_operation[retVal[1]]));
+}
+
+//-----------------------------------------
+
+void Calculator::handleUnion()
+{
+	auto retVal = getTwoCommands();
+
+	if (retVal == ERROR_COMMAND_NUM) return;
+	m_operation.emplace_back(std::make_shared<Union>(m_operation[retVal[0]], m_operation[retVal[1]]));
+}
+
+//-----------------------------------------
+
+void Calculator::handleDiff()
+{
+	auto retVal = getTwoCommands();
+
+	if (retVal == ERROR_COMMAND_NUM) return;
+	m_operation.emplace_back(std::make_shared<Difference>(m_operation[retVal[0]], m_operation[retVal[1]]));
+}
+
+//-----------------------------------------
+
+std::vector<int> Calculator::getTwoCommands() const
+{
+	std::vector<int> retVal(2, 0);
+	retVal[0] = readCommandNum();
+	retVal[1]  = readCommandNum();
+
+	if (!isValidCommand(retVal[0]) || !isValidCommand(retVal[1]))
+	{
+		printCommandError();
+		return ERROR_COMMAND_NUM; //TODO: constant
+	}
+
+	return retVal;
+
+}
+
+int Calculator::readCommandNum()const
+{
+	int command;
+	std::cin >> command;
+	return command;
+}
+
+bool Calculator::isValidCommand(int command)const
+{
+	if (command < m_operation.size() && command >= 0) return true;
+	return false;
+}
 
 void Calculator::print() const
 {
@@ -129,12 +195,13 @@ void Calculator::print() const
 	//print options
 	int offset = 0;
 
-	for (int i = 0; i < 3 /* m_operation.size() */; i++)
+	for (int i = 0; i <  m_operation.size() ; i++)
 	{
 		offset = 0;
 
-		std::cout << i << ".";
+		std::cout << i << ". ";
 		m_operation[i]->print(offset);
+		std::cout << std::endl;
 
 	}
 
@@ -169,4 +236,9 @@ void Calculator::printHelp() const
 			<< "* del(ete) num - delete operation #num from the operation list\n"
 			<< "* help - print this command list\n"
 			<< "* exit - exit the program\n";
+}
+
+void Calculator::printCommandError() const
+{
+	std::cout << "The operation does not exist\n";
 }

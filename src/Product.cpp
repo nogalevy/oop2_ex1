@@ -21,11 +21,11 @@ Set Product::calculate(std::vector<Set>& sets)
 
 void Product::print(int& offset)
 {
-	std::cout << " ( ";
+	std::cout << "( ";
 	getFirstOp().get()->print(offset);
 	std::cout << " * ";
 	getSecondOp().get()->print(offset);
-	std::cout << " ) " << std::endl;
+	std::cout << " )";
 }
 
 Set Product::calcProduct(std::vector<int> set1, std::vector<int> set2)

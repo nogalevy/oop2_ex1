@@ -22,11 +22,11 @@ Set Intersection::calculate(std::vector<Set> &sets)
 
 void Intersection::print(int& offset)
 {
-	std::cout << " ( ";
+	std::cout << "( ";
 	getFirstOp().get()->print(offset);
 	std::cout << " ^ ";
 	getSecondOp().get()->print(offset);
-	std::cout << " ) " << std::endl;
+	std::cout << " )";
 }
 
 
