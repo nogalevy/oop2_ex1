@@ -62,9 +62,11 @@ void Calculator::doCommand(int command)
 	case INTER:
 	{
 		//inter exeample :
-		/*Intersection inter;
-		Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
-		res.printSet();*/
+		std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
+		Set res = m_operation[1]->calculate(sets);
+		//Intersection inter;
+		//Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
+		res.printSet();
 		break;
 	}
 	case DIFF:
@@ -108,7 +110,7 @@ void Calculator::print() const
 	//print options
 	int offset = 0;
 
-	for (int i = 0; i < 1 /* m_operation.size() */; i++)
+	for (int i = 0; i < 2 /* m_operation.size() */; i++)
 	{
 		offset = 0;
 

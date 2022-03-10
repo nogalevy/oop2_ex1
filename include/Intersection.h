@@ -12,9 +12,7 @@ public:
 
 	// 
 	Set calculate(std::vector<Set> &sets);
-	virtual void print(int& offset) {}
-	//Access Functions
-	//Set getUnion()const;
+	virtual void print(int& offset);
 private:
 	
 };
