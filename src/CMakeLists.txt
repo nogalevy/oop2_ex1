@@ -6,5 +6,6 @@
 												"Intersection.cpp"
 												"CompOperation.cpp"
 												"Identity.cpp"
+												"Product.cpp"
 												)
 

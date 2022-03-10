@@ -7,6 +7,12 @@ Calculator::Calculator()
 
 	m_operation.emplace_back(std::make_shared<Union>(std::make_shared<Identity>(), std::make_shared<Identity>()));
 	m_operation.emplace_back(std::make_shared<Intersection>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+	
+	// product example
+	//m_operation.emplace_back(std::make_shared<Product>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+	
+	
+	
 	//m_operation.push_back(std::make_shared<Difference>(Identity(), Identity()));
 
 	//initBaseOp();
@@ -70,6 +76,13 @@ void Calculator::doCommand(int command)
 	case DIFF:
 		break;
 	case PROD:
+	{
+		/*std::vector<Set> sets = { Set({ 1, 2 }), Set({ 3, 4 }) };
+		Set res = m_operation[2]->calculate(sets);
+
+		res.printSet();*/
+
+	}
 		break;
 	case COMP:
 		break;
