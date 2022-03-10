@@ -10,7 +10,7 @@
 #include "Identity.h"
 #include "Intersection.h"
 #include "Product.h"
-
+#include "Difference.h"
 
 enum Commands { EVAL, UNI, INTER, DIFF, PROD, COMP, DEL, HELP, EXIT };
 const int NUM_OF_COMMAND = 9;

@@ -11,9 +11,22 @@ Intersection::~Intersection()
 
 Set Intersection::calculate(std::vector<Set> &sets)
 {
-	//std::vector<int> res;
-	/*std::ranges::set_intersection(set1.getSet(), set2.getSet(), std::back_inserter(res)); */
+	Set firstSide = getFirstOp().get()->calculate(sets);
+	Set secondSide = getSecondOp().get()->calculate(sets);
 
-	return Set({});
+	auto res = std::vector<int>();
+	std::ranges::set_intersection(firstSide.getSet(), secondSide.getSet(), std::back_inserter(res));
+
+	return Set(res);
 }
+
+void Intersection::print(int& offset)
+{
+	std::cout << " ( ";
+	getFirstOp().get()->print(offset);
+	std::cout << " ^ ";
+	getSecondOp().get()->print(offset);
+	std::cout << " ) " << std::endl;
+}
+
 

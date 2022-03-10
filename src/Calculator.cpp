@@ -13,7 +13,7 @@ Calculator::Calculator()
 	
 	
 	
-	//m_operation.push_back(std::make_shared<Difference>(Identity(), Identity()));
+	m_operation.emplace_back(std::make_shared<Difference>(std::make_shared<Identity>(), std::make_shared<Identity>()));
 
 	//initBaseOp();
 	
@@ -68,13 +68,21 @@ void Calculator::doCommand(int command)
 	case INTER:
 	{
 		//inter exeample :
-		/*Intersection inter;
-		Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
-		res.printSet();*/
+		std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
+		Set res = m_operation[1]->calculate(sets);
+		//Intersection inter;
+		//Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
+		res.printSet();
 		break;
 	}
 	case DIFF:
+	{
+		std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
+		Set res = m_operation[2]->calculate(sets);
+		res.printSet();
+
 		break;
+	}
 	case PROD:
 	{
 		/*std::vector<Set> sets = { Set({ 1, 2 }), Set({ 3, 4 }) };
@@ -121,7 +129,7 @@ void Calculator::print() const
 	//print options
 	int offset = 0;
 
-	for (int i = 0; i < 1 /* m_operation.size() */; i++)
+	for (int i = 0; i < 3 /* m_operation.size() */; i++)
 	{
 		offset = 0;
 

@@ -7,5 +7,7 @@
 												"CompOperation.cpp"
 												"Identity.cpp"
 												"Product.cpp"
+												"Difference.cpp"
+
 												)
 
