@@ -151,7 +151,7 @@ void Calculator::handleUnion()
 
 void Calculator::handleDiff()
 {
-	auto retVal = getTwoCommands();
+	auto retVal = getTwoCommands(); 
 
 	if (retVal == ERROR_COMMAND_NUM) return;
 	m_operation.emplace_back(std::make_shared<Difference>(m_operation[retVal[0]], m_operation[retVal[1]]));
@@ -167,7 +167,7 @@ void Calculator::handleDelete()
 	}
 
 	m_operation.erase(m_operation.begin() + commandToDelete);
-
+	//std::cout << "\033[1;31mbold red text\033[0m\n"; //TODO: cout with color example
 
 }
 
