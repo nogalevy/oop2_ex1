@@ -11,6 +11,7 @@
 #include "Intersection.h"
 #include "Product.h"
 #include "Difference.h"
+#include "Composite.h"
 
 enum Commands { EVAL, UNI, INTER, DIFF, PROD, COMP, DEL, HELP, EXIT };
 const int NUM_OF_COMMAND = 9;
@@ -38,6 +39,7 @@ private:
 	void handleInter();
 	void handleUnion();
 	void handleDiff();
+	void handleComp();
 	void handleDelete();
 
 

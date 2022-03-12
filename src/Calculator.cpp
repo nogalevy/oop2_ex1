@@ -69,6 +69,7 @@ void Calculator::doCommand(int command)
 		handleProd();
 		break;
 	case COMP:
+		handleComp();
 		break;
 	case DEL:
 		handleDelete();
@@ -178,6 +179,16 @@ void Calculator::handleDiff()
 
 	if (retVal == ERROR_COMMAND_NUM) return;
 	m_operation.emplace_back(std::make_shared<Difference>(m_operation[retVal[0]], m_operation[retVal[1]]));
+}
+
+//-----------------------------------------
+
+void Calculator::handleComp()
+{
+	auto retVal = getTwoCommands();
+
+	if (retVal == ERROR_COMMAND_NUM) return;
+	m_operation.emplace_back(std::make_shared<Composite>(m_operation[retVal[0]], m_operation[retVal[1]]));
 }
 
 //-----------------------------------------

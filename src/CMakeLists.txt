@@ -8,6 +8,7 @@
 												"Identity.cpp"
 												"Product.cpp"
 												"Difference.cpp"
+												"Composite.cpp"
 
 												)
 

@@ -13,5 +13,4 @@ public:
 
 	virtual void print(int& offset);
 private:
-	//int initNumOfSets();
 };

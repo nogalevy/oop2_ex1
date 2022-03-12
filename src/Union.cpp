@@ -23,7 +23,6 @@ Set Union::calculate(std::vector<Set> &sets)
 	auto res = std::vector<int>();
 	std::ranges::set_union(firstSide.getSet(), secondSide.getSet(), std::back_inserter(res));
 
-	//calc union with ranges
 	return Set(res);
 }
 
