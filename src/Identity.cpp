@@ -23,5 +23,7 @@ Set Identity::calculate(std::vector<Set> &sets)
 
 void Identity::print(int& offset)
 {
-	std::cout << char('A' + offset++);
+	std::cout << char('A' + (offset % 26)) << (offset >= 26 ? "'" : "");
+
+	offset++;
 }
