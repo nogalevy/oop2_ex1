@@ -2,7 +2,7 @@
 
 
 Calculator::Calculator()
-	:m_operation({})
+	:m_operation({}) //Tali: nullptr? const ? :)
 {
 	initBaseOp();
 }
@@ -11,7 +11,6 @@ Calculator::Calculator()
 
 void Calculator::run()
 {
-
 	while(1) 
 	{
 		print();
@@ -25,16 +24,12 @@ void Calculator::initBaseOp()
 {
 	//add basic union ( A U B )
 	m_operation.emplace_back(std::make_shared<Union>(std::make_shared<Identity>(), std::make_shared<Identity>()));
-	//std::cout << "Num of sets for operation 0: " << m_operation[0]->getNumOfSets() << std::endl;
 
 	//add basic intersection ( A ^ B ) 
 	m_operation.emplace_back(std::make_shared<Intersection>(std::make_shared<Identity>(), std::make_shared<Identity>()));
-	//std::cout << "Num of sets for operation 1: " << m_operation[1]->getNumOfSets() << std::endl;
-
 
 	//add basic difference ( A - B )
 	m_operation.emplace_back(std::make_shared<Difference>(std::make_shared<Identity>(), std::make_shared<Identity>()));
-	//std::cout << "Num of sets for operation 2: " << m_operation[2]->getNumOfSets() << std::endl;
 }
 
 //-----------------------------------------
