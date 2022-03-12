@@ -108,7 +108,7 @@ void Calculator::handleEval()
 	auto sets = readSets(numOfSets);
 
 	Set res = m_operation[command]->calculate(sets);
-	std::cout << " = ";
+	std::cout << ' ' << EQUAL_SYMBOL << ' ';
 	res.printSet();
 	std::cout << "\n";
 

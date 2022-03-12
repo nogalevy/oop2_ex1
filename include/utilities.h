@@ -19,3 +19,4 @@ const std::string INTER_SYMBOL = "^";
 const std::string DIFF_SYMBOL = "-";
 const std::string PROD_SYMBOL = "*";
 const std::string COMP_SYMBOL = "->";
+const std::string EQUAL_SYMBOL = "=";
