@@ -3,16 +3,29 @@
 Intersection::Intersection( std::shared_ptr<Operation> first,  std::shared_ptr<Operation> second)
 	:CompOperation(first, second)
 {
+	int count = initNumOfSets();
+	setNumOfSets(count);
 }
 
 Intersection::~Intersection()
 {
 }
 
+int Intersection::initNumOfSets()
+{
+	int count1 = getFirstOp().get()->getNumOfSets();
+	int count2 = getSecondOp().get()->getNumOfSets();
+
+	return (count1 + count2);
+}
+
 Set Intersection::calculate(std::vector<Set> &sets)
 {
+	std::cout << "(";
 	Set firstSide = getFirstOp().get()->calculate(sets);
+	std::cout << " ^ ";
 	Set secondSide = getSecondOp().get()->calculate(sets);
+	std::cout << ")";
 
 	auto res = std::vector<int>();
 	std::ranges::set_intersection(firstSide.getSet(), secondSide.getSet(), std::back_inserter(res));

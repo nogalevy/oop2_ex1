@@ -33,6 +33,7 @@ private:
 
 
 	//handle commands functions
+	void handleEval(); //Tali: which of these needs consts
 	void handleProd();
 	void handleInter();
 	void handleUnion();
@@ -43,6 +44,8 @@ private:
 	std::vector<int> getTwoCommands()const;
 	int readCommandNum()const;
 	bool isValidCommand(int command)const;
+	std::vector<Set> readSets(const int numOfInputs)const;
+
 	
 	//print functions:
 	void print()const;

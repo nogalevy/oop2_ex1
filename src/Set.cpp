@@ -24,7 +24,7 @@ void Set::printSet() const
 	{
 		std::cout << m_setValues[i] << " ";
 	}
-	std::cout << "}\n";
+	std::cout << "}";
 }
 
 

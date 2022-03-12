@@ -25,12 +25,16 @@ void Calculator::initBaseOp()
 {
 	//add basic union ( A U B )
 	m_operation.emplace_back(std::make_shared<Union>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+	//std::cout << "Num of sets for operation 0: " << m_operation[0]->getNumOfSets() << std::endl;
 
 	//add basic intersection ( A ^ B ) 
 	m_operation.emplace_back(std::make_shared<Intersection>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+	//std::cout << "Num of sets for operation 1: " << m_operation[1]->getNumOfSets() << std::endl;
+
 
 	//add basic difference ( A - B )
 	m_operation.emplace_back(std::make_shared<Difference>(std::make_shared<Identity>(), std::make_shared<Identity>()));
+	//std::cout << "Num of sets for operation 2: " << m_operation[2]->getNumOfSets() << std::endl;
 }
 
 //-----------------------------------------
@@ -50,43 +54,19 @@ void Calculator::doCommand(int command)
 	switch (command)
 	{
 	case EVAL:
-	{
-		std::cout << "evaluate\n";
-
-		std::vector vec = { 1, 5, 6, 3, 12 , 3, 12 , 1, 5 };
-		Set newSet = Set(vec);
-		newSet.printSet(); //TODO: operator << thanks
+		handleEval();
 		break;
-	}	
 	case UNI:
-	{
-	/*	std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
-		Set res = m_operation[0]->calculate(sets);
-	
-		res.printSet();*/
 		handleUnion();
 		break;
-	}
 	case INTER:
-	{
-		////inter exeample :
-		//std::vector<Set> sets = { Set({ 1, 2, 3, 4 }), Set({ 2, 56, 675, 56 }) };
-		//Set res = m_operation[1]->calculate(sets);
-		////Intersection inter;
-		////Set res = inter.calculate({Set({ 1, 2, 3, 4 }), Set({ 2, 7 ,8 ,9 ,56, 675, 56 })});
-		//res.printSet();
 		handleInter();
 		break;
-	}
 	case DIFF:
-	{
 		handleDiff();
 		break;
-	}
 	case PROD:
-	{
 		handleProd();
-	}
 		break;
 	case COMP:
 		break;
@@ -115,6 +95,49 @@ int Calculator::interp(std::string command) const
 			return Commands(i);
 	}
 	return ERROR_NUM; //error TODO: add to constants
+}
+
+//-----------------------------------------
+
+void Calculator::handleEval()
+{
+	int command = readCommandNum();
+	if (!isValidCommand(command))
+	{
+		printCommandError();
+		return;
+	}
+	int numOfSets = m_operation[command]->getNumOfSets();
+	std::cout << "Please enter " << numOfSets << " sets:\n"; //Tali: not necessary but i thought nice
+	auto sets = readSets(numOfSets);
+
+	Set res = m_operation[command]->calculate(sets);
+	std::cout << " = ";
+	res.printSet();
+	std::cout << "\n";
+
+}
+
+//-----------------------------------------
+
+std::vector<Set> Calculator::readSets(const int numOfSets) const
+{
+	auto sets = std::vector<Set>();
+	auto intVec = std::vector<int>();
+	int numOfInts, num;
+
+	for (int i = 0; i < numOfSets; i++)
+	{
+		std::cin >> numOfInts;
+		for (int j = 0; j < numOfInts; j++)
+		{
+			std::cin >> num;
+			intVec.push_back(num);
+		}
+		sets.push_back(Set(intVec));
+		intVec.clear();
+	}
+	return sets;
 }
 
 //-----------------------------------------
@@ -157,6 +180,8 @@ void Calculator::handleDiff()
 	m_operation.emplace_back(std::make_shared<Difference>(m_operation[retVal[0]], m_operation[retVal[1]]));
 }
 
+//-----------------------------------------
+
 void Calculator::handleDelete()
 {
 	int commandToDelete = readCommandNum();
@@ -186,8 +211,9 @@ std::vector<int> Calculator::getTwoCommands() const
 	}
 
 	return retVal;
-
 }
+
+//-----------------------------------------
 
 int Calculator::readCommandNum()const
 {
@@ -196,15 +222,19 @@ int Calculator::readCommandNum()const
 	return command;
 }
 
+//-----------------------------------------
+
 bool Calculator::isValidCommand(int command)const
 {
 	if (command < m_operation.size() && command >= 0) return true;
 	return false;
 }
 
+//-----------------------------------------
+
 void Calculator::print() const
 {
-	std::cout << "List of available set operations: \n";
+	std::cout << "\nList of available set operations: \n\n";
 
 	//print options
 	int offset = 0;
@@ -215,12 +245,13 @@ void Calculator::print() const
 
 		std::cout << i << ". ";
 		m_operation[i]->print(offset);
+		//std::cout << "     " << m_operation[i]->getNumOfSets();
 		std::cout << std::endl;
 
 	}
 
 	
-	std::cout << "Enter command ('help' for the list of available commands): ";
+	std::cout << "\nEnter command ('help' for the list of available commands): ";
 }
 
 //-----------------------------------------
@@ -234,23 +265,25 @@ void Calculator::printErrorMsg() const
 
 void Calculator::printHelp() const
 {
-	std::cout << "The available commands are:\n"
+	std::cout << "\nThe available commands are:\n"
 			<< "* eval(uate) num ... - compute the result of the function #num on the following\n"
-			<< "set(s); each set is prefixed with the count of numbers to read\n"
+			<< "  set(s); each set is prefixed with the count of numbers to read\n"
 			<< "* uni(on) num1 num2 - creates an operation that is the union of operation\n"
-			<< "#num1 and operation #num2\n"
+			<< "  #num1 and operation #num2\n"
 			<< "* inter(section) num1 num2 - creates an operation that is the intersection\n"
-			<< "of operation #num1 and operation #num2\n"
+			<< "  of operation #num1 and operation #num2\n"
 			<< "* diff(erence) num1 num2 - creates an operation that is the difference of\n"
-			<< "operation #num1 and operation #num2\n"
+			<< "  operation #num1 and operation #num2\n"
 			<< "* prod(uct) num1 num2 - creates an operation that returns the product of\n"
-			<< "the items from the results of operation #num1 and operation #num2\n"
+			<< "  the items from the results of operation #num1 and operation #num2\n"
 			<< "* comp(osite) num1 num2 - creates an operation that is the composition of\n"
-			<< "operation #num1 and operation #num2\n"
+			<< "  operation #num1 and operation #num2\n"
 			<< "* del(ete) num - delete operation #num from the operation list\n"
 			<< "* help - print this command list\n"
 			<< "* exit - exit the program\n";
 }
+
+//-----------------------------------------
 
 void Calculator::printCommandError() const
 {
