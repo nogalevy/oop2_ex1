@@ -5,10 +5,6 @@ CompOperation::CompOperation(std::shared_ptr<Operation> first,std::shared_ptr<Op
 {
 }
 
-CompOperation::~CompOperation()
-{
-}
-
 int CompOperation::initNumOfSets()
 {
 	int count1 = getFirstOp().get()->getNumOfSets();

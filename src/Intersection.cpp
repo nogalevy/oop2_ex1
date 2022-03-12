@@ -7,10 +7,6 @@ Intersection::Intersection( std::shared_ptr<Operation> first,  std::shared_ptr<O
 	setNumOfSets(count);
 }
 
-Intersection::~Intersection()
-{
-}
-
 Set Intersection::calculate(std::vector<Set> &sets)
 {
 	std::cout << "(";

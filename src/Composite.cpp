@@ -8,10 +8,6 @@ Composite::Composite(std::shared_ptr<Operation> first, std::shared_ptr<Operation
 	setNumOfSets(count - 1);
 }
 
-Composite::~Composite()
-{
-}
-
 Set Composite::calculate(std::vector<Set>& sets)
 {
 	std::cout << "(";

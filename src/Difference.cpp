@@ -7,10 +7,6 @@ Difference::Difference(std::shared_ptr<Operation> first, std::shared_ptr<Operati
 	setNumOfSets(count);
 }
 
-Difference::~Difference()
-{
-}
-
 Set Difference::calculate(std::vector<Set>& sets)
 {
 	std::cout << "(";

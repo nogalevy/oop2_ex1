@@ -90,7 +90,7 @@ int Calculator::interp(std::string command) const
 		if (COMMANDS_STR[i].compare(command) == 0)
 			return Commands(i);
 	}
-	return ERROR_NUM; //error TODO: add to constants
+	return ERROR_NUM;
 }
 
 //-----------------------------------------
@@ -213,7 +213,7 @@ std::vector<int> Calculator::getTwoCommands() const
 	if (!isValidCommand(retVal[0]) || !isValidCommand(retVal[1]))
 	{
 		printCommandError();
-		return ERROR_COMMAND_NUM; //TODO: constant
+		return ERROR_COMMAND_NUM;
 	}
 
 	return retVal;

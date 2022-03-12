@@ -8,10 +8,6 @@ Union::Union (std::shared_ptr<Operation> first, std::shared_ptr<Operation> secon
 	setNumOfSets(count);
 }
 
-Union::~Union()
-{
-}
-
 Set Union::calculate(std::vector<Set> &sets)
 {
 	std::cout << "(";

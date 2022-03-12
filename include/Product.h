@@ -7,9 +7,7 @@ class Product : public CompOperation
 {
 public:
 	Product(std::shared_ptr<Operation> first, std::shared_ptr<Operation> second);
-	~Product();
 
-	// 
 	virtual Set calculate(std::vector<Set>& sets);
 	virtual void print(int& offset);
 private:

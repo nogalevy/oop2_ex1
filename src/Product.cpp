@@ -7,10 +7,6 @@ Product::Product(std::shared_ptr<Operation> first, std::shared_ptr<Operation> se
 	setNumOfSets(count);
 }
 
-Product::~Product()
-{
-}
-
 Set Product::calculate(std::vector<Set>& sets)
 {
 	std::cout << "(";

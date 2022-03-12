@@ -7,7 +7,6 @@ class CompOperation : public Operation
 {
 public:
 	CompOperation(std::shared_ptr<Operation> first,std::shared_ptr<Operation> second);
-	~CompOperation();
 
 	int initNumOfSets();
 

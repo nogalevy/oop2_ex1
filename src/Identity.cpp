@@ -5,10 +5,6 @@ Identity::Identity()
 	setNumOfSets(1);
 }
 
-Identity::~Identity()
-{
-}
-
 Set Identity::calculate(std::vector<Set> &sets)
 {
 	Set identity = sets[0]; 
@@ -23,7 +19,7 @@ Set Identity::calculate(std::vector<Set> &sets)
 
 void Identity::print(int& offset)
 {
-	std::cout << char('A' + (offset % 26)) << (offset >= 26 ? "'" : "");
+	std::cout << char(FIRST_LETTER + (offset % 26)) << (offset >= 26 ? "'" : "");
 
 	offset++;
 }

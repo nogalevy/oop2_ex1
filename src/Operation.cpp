@@ -1,8 +1,5 @@
 #include "Operation.h"
 
-Operation::~Operation()
-{
-}
 
 void Operation::setNumOfSets(const int num)
 {

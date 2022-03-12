@@ -8,7 +8,7 @@ class Operation
 {
 public:
 	Operation() = default;
-	virtual ~Operation();
+	~Operation() {};
 
 	void setNumOfSets(const int num);
 	int getNumOfSets()const;
