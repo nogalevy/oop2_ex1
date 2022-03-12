@@ -11,7 +11,7 @@ Set Difference::calculate(std::vector<Set>& sets)
 {
 	std::cout << "(";
 	Set firstSide = getFirstOp().get()->calculate(sets);
-	std::cout << " - ";
+	std::cout << ' ' << DIFF_SYMBOL << ' ';
 	Set secondSide = getSecondOp().get()->calculate(sets);
 	std::cout << ")";
 
@@ -25,7 +25,7 @@ void Difference::print(int& offset)
 {
 	std::cout << "( ";
 	getFirstOp().get()->print(offset);
-	std::cout << " - ";
+	std::cout << ' ' << DIFF_SYMBOL << ' ';
 	getSecondOp().get()->print(offset);
 	std::cout << " )";
 }

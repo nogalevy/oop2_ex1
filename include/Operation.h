@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "Set.h"
-
+#include "utilities.h"
  
 class Operation
 {

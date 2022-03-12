@@ -12,7 +12,7 @@ Set Union::calculate(std::vector<Set> &sets)
 {
 	std::cout << "(";
 	Set firstSide = getFirstOp().get()->calculate(sets);
-	std::cout << " U ";
+	std::cout << ' ' << UNI_SYMBOL << ' ';
 	Set secondSide = getSecondOp().get()->calculate(sets);
 	std::cout << ")";
 
@@ -26,7 +26,7 @@ void Union::print(int& offset)
 {
 	std::cout << "( ";
 	getFirstOp().get()->print(offset);
-	std::cout << " U ";
+	std::cout << ' ' << UNI_SYMBOL << ' ';
 	getSecondOp().get()->print(offset);
 	std::cout << " )";
 }

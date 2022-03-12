@@ -12,7 +12,7 @@ Set Composite::calculate(std::vector<Set>& sets)
 {
 	std::cout << "(";
 	Set firstSide = getFirstOp().get()->calculate(sets);
-	std::cout << " -> ";
+	std::cout << ' ' << COMP_SYMBOL << ' ';
 	sets.insert(sets.begin(), firstSide);
 	Set secondSide = getSecondOp().get()->calculate(sets);
 	std::cout << ")";
@@ -24,7 +24,7 @@ void Composite::print(int& offset)
 {
 	std::cout << "( ";
 	getFirstOp().get()->print(offset);
-	std::cout << " -> ";
+	std::cout << ' ' << COMP_SYMBOL << ' ';
 	getSecondOp().get()->print(offset);
 	std::cout << " )";
 }
