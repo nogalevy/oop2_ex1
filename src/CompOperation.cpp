@@ -9,6 +9,14 @@ CompOperation::~CompOperation()
 {
 }
 
+int CompOperation::initNumOfSets()
+{
+	int count1 = getFirstOp().get()->getNumOfSets();
+	int count2 = getSecondOp().get()->getNumOfSets();
+
+	return (count1 + count2);
+}
+
 std::shared_ptr<Operation> CompOperation::getFirstOp() const
 {
 	return m_firstOp;

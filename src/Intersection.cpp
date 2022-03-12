@@ -11,14 +11,6 @@ Intersection::~Intersection()
 {
 }
 
-int Intersection::initNumOfSets()
-{
-	int count1 = getFirstOp().get()->getNumOfSets();
-	int count2 = getSecondOp().get()->getNumOfSets();
-
-	return (count1 + count2);
-}
-
 Set Intersection::calculate(std::vector<Set> &sets)
 {
 	std::cout << "(";

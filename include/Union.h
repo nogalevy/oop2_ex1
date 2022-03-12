@@ -9,12 +9,9 @@ public:
 	Union(std::shared_ptr<Operation> first, std::shared_ptr<Operation> second);
 	~Union();
 
-	//virtual void setNumOfSets(const int num);
-	//virtual int getNumOfSets()const;
-
 	Set calculate(std::vector<Set> &sets);
 
 	virtual void print(int& offset);
 private:
-	int initNumOfSets();
+	//int initNumOfSets();
 };

@@ -3,6 +3,8 @@
 Product::Product(std::shared_ptr<Operation> first, std::shared_ptr<Operation> second)
 	:CompOperation(first, second)
 {
+	int count = initNumOfSets();
+	setNumOfSets(count);
 }
 
 Product::~Product()
@@ -11,8 +13,11 @@ Product::~Product()
 
 Set Product::calculate(std::vector<Set>& sets)
 {
+	std::cout << "(";
 	Set firstSide = getFirstOp().get()->calculate(sets);
+	std::cout << " * ";
 	Set secondSide = getSecondOp().get()->calculate(sets);
+	std::cout << ")";
 
 	auto res = std::vector<int>();
 

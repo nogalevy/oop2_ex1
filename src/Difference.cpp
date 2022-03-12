@@ -11,14 +11,6 @@ Difference::~Difference()
 {
 }
 
-int Difference::initNumOfSets()
-{
-	int count1 = getFirstOp().get()->getNumOfSets();
-	int count2 = getSecondOp().get()->getNumOfSets();
-
-	return (count1 + count2);
-}
-
 Set Difference::calculate(std::vector<Set>& sets)
 {
 	std::cout << "(";
