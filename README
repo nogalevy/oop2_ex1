@@ -49,9 +49,8 @@ Files:
     - Intersection.h/Intersection.cpp: contains class Intersection
     - Product.h/Product.cpp: contains class Product (multiplies the sets)
     - Composite.h/Composite.cpp: contains class Composite
-
-    *********** WE WILL HAVE TO ADD HERE CONST FILE AT SOME POINT********
-
+    - utilities.h: contains constant variables
+    - PrintUtilities.h/PrintUtilities.cpp: contains function to print colored text
 
 Main Data Structures and their Jobs:
     - vector of shared_ptr of class Operations that contains all the operations
