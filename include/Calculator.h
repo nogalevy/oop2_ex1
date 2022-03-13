@@ -6,6 +6,7 @@
 #include <string>
 
 #include "utilities.h"
+#include "PrintUtilities.h"
 
 #include "Set.h"
 #include "Union.h"
@@ -31,7 +32,7 @@ private:
 
 
 	//handle commands functions
-	void handleEval(); //Tali: which of these needs consts
+	void handleEval(); //Tali: which of these needs consts //Noga: i think eval.     prod, inter..... change the member
 	void handleProd();
 	void handleInter();
 	void handleUnion();

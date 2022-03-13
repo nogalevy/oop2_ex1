@@ -2,7 +2,7 @@
 
 
 Calculator::Calculator()
-	:m_operation({}) //Tali: nullptr? const ? :)
+	:m_operation({})
 {
 	initBaseOp();
 }
@@ -104,7 +104,7 @@ void Calculator::handleEval()
 		return;
 	}
 	int numOfSets = m_operation[command]->getNumOfSets();
-	std::cout << "Please enter " << numOfSets << " sets:\n"; //Tali: not necessary but i thought nice
+	std::cout << "Please enter " << numOfSets << " sets:\n"; 
 	auto sets = readSets(numOfSets);
 
 	Set res = m_operation[command]->calculate(sets);
@@ -196,10 +196,7 @@ void Calculator::handleDelete()
 		printCommandError();
 		return;
 	}
-
 	m_operation.erase(m_operation.begin() + commandToDelete);
-	//std::cout << "\033[1;31mbold red text\033[0m\n"; //TODO: cout with color example
-
 }
 
 //-----------------------------------------
@@ -240,7 +237,7 @@ bool Calculator::isValidCommand(int command)const
 
 void Calculator::print() const
 {
-	std::cout << "\nList of available set operations: \n\n";
+	printBold("\nList of available set operations: \n\n");
 
 	//print options
 	int offset = 0;
@@ -251,12 +248,9 @@ void Calculator::print() const
 
 		std::cout << i << ". ";
 		m_operation[i]->print(offset);
-		//std::cout << "     " << m_operation[i]->getNumOfSets();
 		std::cout << std::endl;
-
 	}
 
-	
 	std::cout << "\nEnter command ('help' for the list of available commands): ";
 }
 
@@ -264,7 +258,7 @@ void Calculator::print() const
 
 void Calculator::printErrorMsg() const
 {
-	std::cout << "Command not found\n";
+	printRed("Command not found");
 }
 
 //-----------------------------------------
@@ -293,5 +287,5 @@ void Calculator::printHelp() const
 
 void Calculator::printCommandError() const
 {
-	std::cout << "The operation does not exist\n";
+	printRed("The operation does not exist\n");
 }
