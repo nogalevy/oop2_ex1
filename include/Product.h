@@ -2,7 +2,6 @@
 
 #include "CompOperation.h"
 
-
 class Product : public CompOperation
 {
 public:
@@ -12,5 +11,4 @@ public:
 	virtual void print(int& offset);
 private:
 	Set calcProduct(std::vector<int> set1, std::vector<int> set2);
-
 };

@@ -84,7 +84,7 @@ void Calculator::doCommand(int command)
 
 //-----------------------------------------
 
-int Calculator::interp(std::string command) const
+int Calculator::interp(const std::string command) const
 {
 	for (int i = 0; i < NUM_OF_COMMAND ; i++)
 	{
@@ -96,7 +96,7 @@ int Calculator::interp(std::string command) const
 
 //-----------------------------------------
 
-void Calculator::handleEval()
+void Calculator::handleEval()const
 {
 	int command = readCommandNum();
 	if (!isValidCommand(command))
@@ -106,13 +106,13 @@ void Calculator::handleEval()
 	}
 	int numOfSets = m_operation[command]->getNumOfSets();
 
-	std::cout << "Please enter " << numOfSets << " sets:\n"; 
+	std::cout << "Please enter " << numOfSets << " sets: \n"; 
 	auto sets = readSets(numOfSets);
 
 	Set res = m_operation[command]->calculate(sets);
 	std::cout << ' ' << EQUAL_SYMBOL << ' ';
 	res.printSet();
-	std::cout << "\n";
+	std::cout << std::endl;
 
 }
 

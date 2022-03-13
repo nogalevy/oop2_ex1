@@ -2,7 +2,6 @@
 
 #include "Operation.h"
 
-
 class CompOperation : public Operation
 {
 public:

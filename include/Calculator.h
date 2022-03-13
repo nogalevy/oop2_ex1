@@ -28,11 +28,11 @@ private:
 	void initBaseOp();
 	void getCommand();
 	void doCommand(int command);
-	int interp(std::string command)const;
+	int interp(const std::string command)const;
 
 
 	//handle commands functions
-	void handleEval(); //Tali: which of these needs consts //Noga: i think eval.     prod, inter..... change the member
+	void handleEval() const; 
 	void handleProd();
 	void handleInter();
 	void handleUnion();

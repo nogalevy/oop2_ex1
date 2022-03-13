@@ -10,7 +10,7 @@ const int ERROR_NUM = -1;
 const std::vector<int> ERROR_COMMAND_NUM = { ERROR_NUM, ERROR_NUM };
 
 const char FIRST_LETTER = 'A';
-
+const int ID_NUM_OF_SETS = 1;
 
 //operators symbols:
 const std::string UNI_SYMBOL = "U";

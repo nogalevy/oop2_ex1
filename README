@@ -68,7 +68,6 @@ Notable Algorithms:
         - std::ranges::sort
     - access to the data in the binary search tree of operations is done in order
 
-
 Known Bugs:
     - no known bugs
 

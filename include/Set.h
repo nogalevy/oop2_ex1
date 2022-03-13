@@ -7,14 +7,15 @@
 class Set
 {
 public:
-	Set(std::vector<int> val);
-	void makeSet(); //Tali: private?
+	Set(const std::vector<int> val);
+
 	std::vector<int> getSet()const;
 	void printSet()const;
 
 private:
 	std::vector<int> m_setValues;
 
+	void makeSet();
 	void sort();
 	void unique();
 };

@@ -1,6 +1,6 @@
 #include "Set.h"
 
-Set::Set(std::vector<int> val)
+Set::Set(const std::vector<int> val)
 	:m_setValues(val)
 {
 	makeSet();
@@ -22,7 +22,7 @@ void Set::printSet() const
 	std::cout << "{ ";
 	for (int i = 0; i < m_setValues.size(); i++)
 	{
-		std::cout << m_setValues[i] << " ";
+		std::cout << m_setValues[i] << (i == (m_setValues.size() - 1) ? " " : ", ");
 	}
 	std::cout << "}";
 }

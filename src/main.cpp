@@ -1,7 +1,4 @@
-#include <memory>
-#include <iostream>
 #include "Calculator.h"
-
 
 int main()
 {

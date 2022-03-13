@@ -1,4 +1,4 @@
-#include "..\include\Difference.h"
+#include "Difference.h"
 
 Difference::Difference(std::shared_ptr<Operation> first, std::shared_ptr<Operation> second)
 	:CompOperation(first, second)
