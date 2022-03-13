@@ -8,6 +8,5 @@ int main()
 	Calculator calculator;
 	calculator.run();
 
-
 	return EXIT_SUCCESS;
 }

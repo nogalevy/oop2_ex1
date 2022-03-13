@@ -72,11 +72,11 @@ void Calculator::doCommand(int command)
 	case HELP:
 		printHelp();
 		break;
-	case EXIT: //exit
+	case EXIT:
 		printCyan("Thank you and goodbye");
 		exit(EXIT_SUCCESS);
 		break;
-	default: // error?
+	default:
 		printErrorMsg();
 		break;
 	}
