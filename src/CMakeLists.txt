@@ -9,6 +9,7 @@
 												"Product.cpp"
 												"Difference.cpp"
 												"Composite.cpp"
+												"PrintUtilities.cpp"
 
 												)
 

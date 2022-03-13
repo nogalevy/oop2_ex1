@@ -14,7 +14,8 @@
 class Set
 {
 public:
-	//Set() = default; //Tali : need a default constructor (for other classes) want to know if we should have default m_setValues = {0} or something
+	//Set() = default; //Tali : need a default constructor (for other classes) want to know if we should have default m_setValues = {0} or something -
+	//Noga: if we need default constructor so the default set is {} - empty set.
 	Set(std::vector<int> val);
 	void makeSet();
 	std::vector<int> getSet()const;
