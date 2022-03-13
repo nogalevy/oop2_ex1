@@ -2,7 +2,7 @@
 
 Identity::Identity()
 {
-	setNumOfSets(1);
+	setNumOfSets(1); //TODO: const
 }
 
 Set Identity::calculate(std::vector<Set> &sets)
