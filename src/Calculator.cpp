@@ -73,6 +73,7 @@ void Calculator::doCommand(int command)
 		printHelp();
 		break;
 	case EXIT: //exit
+		printCyan("Thank you and goodbye");
 		exit(EXIT_SUCCESS);
 		break;
 	default: // error?
@@ -104,6 +105,7 @@ void Calculator::handleEval()
 		return;
 	}
 	int numOfSets = m_operation[command]->getNumOfSets();
+
 	std::cout << "Please enter " << numOfSets << " sets:\n"; 
 	auto sets = readSets(numOfSets);
 

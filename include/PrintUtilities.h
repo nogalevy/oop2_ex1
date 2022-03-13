@@ -4,4 +4,5 @@
 #include <string>
 
 void printRed(const std::string str);
+void printCyan(const std::string str);
 void printBold(const std::string str);
