@@ -65,6 +65,9 @@ Notable Algorithms:
         - std::ranges::set_union
         - std::ranges::set_intersection
         - std::ranges::set_difference
+        - std::ranges::unique
+        - std::ranges::sort
+    - access to the data in the binary search tree of operations is done in order
 
 
 Known Bugs:
